@@ -44,6 +44,7 @@ The link_list example above contains the following:
 4. http://mssidebottom.com/fakepage - I created the website mssidebottom.com for my classroom, but there is not page called "fakepage". therefore this link should be returned with a 404 error.
 
 You can test the function with any links you would like. To test a link:
+
 1. Include it in **link_list** and run **link_verification(link_list)**
 2. If the link is not contained in the returned list, the function found it to be a successful URL. If the link is contained in the returned list, it was not found to be a successful URL due to the provided reason.
 
