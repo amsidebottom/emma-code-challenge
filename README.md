@@ -8,82 +8,45 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-- Python (download: https://www.python.org/downloads/) (installation help: http://docs.python-guide.org/en/latest/starting/installation/)
+- Python (download: https://www.python.org/downloads/) 
   - Note: Python version 2.7.10 was used to write this function
+- **urllib2** module must be imported. This step is included in the EmmaCodeChallengeFinal.py file
 
+### Instructions for Running Code
+
+1. Download the **EmmaCodeChallengeFinal.py** file found in this repository
+2. Open the file in the IDE of your choice
+3. In the shell, input your list of links to verify and store them in the variable **link_list**
+   - Example:
+   
+ ```
+link_list=["http://www.google.com", "http://www.facebook.com", "http://www.fake-server.org", "http://www.mssidebottom.com/fakepage"]
+ ```
+4. Now, call the function **link_verification** with the argument **link_list**:
 ```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
+link_verification(link_list)
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+The function will return a list of invalid URLs, as well as the reason/status code for their failure. The example link_list given above will return the following failed_list:
 ```
-Give an example
+['http://www.fake-server.org failed. Reason: [Errno 8] nodename nor servname provided, or not known', "http://www.mssidebottom.com/fakepage failed. Reason: 404('Not Found', 'Nothing matches the given URI')"]
 ```
 
-### And coding style tests
 
-Explain what these tests test and why
+## Testing the Function
 
-```
-Give an example
-```
+To test the function, create **link_list** such that it contains links that should succeed, and links that should fail for varying reasons.
+The link_list example above contains the following:
 
-## Deployment
+1. http://www.google.com - This link is anticpated to be successful, as it should link to Google. Therefore, it should not be returned in the failed_links list
+2. http://facebook.com - Same as above -- this link is anticipated to be successful and therefore not returned
+3. http://fake-server.org - This website does not exist, so it is expected that we will receive an error that there was no server found for this site.
+4. http://mssidebottom.com/fakepage - I created the website mssidebottom.com for my classroom, but there is not page called "fakepage". therefore this link should be returned with a 404 error.
 
-Add additional notes about how to deploy this on a live system
+You can test the function with any links you would like. To test a link:
+1. Include it in **link_list** and run **link_verification(link_list)**
+2. If the link is not contained in the returned list, the function found it to be a successful URL. If the link is contained in the returned list, it was not found to be a successful URL due to the provided reason.
 
-## Built With
+## Author
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
+* **Alyssa Sidebottom** 
